@@ -44,6 +44,7 @@ def download_input(day, input_file_path):
         if response.ok:
             with open(input_file_path, "w") as input_file:
                 input_file.writelines(response.text)
+            with open(input_file_path, "r") as input_file:
                 return [line.strip() for line in input_file]
         if response.status_code == 404:
             return ValueError("Input not available yet for day {0}".format(day))
